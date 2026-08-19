@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Shopping App</h1>
+
+    <section>
+        <h2>Products</h2>
+        <div id="products"></div>
+    </section>
+
+    <section>
+        <h2>Cart</h2>
+        <div id="cart"></div>
+
+        <h3 id="cartTotal">Total: ₹0</h3>
+
+        <button onclick="placeOrder()">Place Order</button>
+        <p id="message"></p>
+    </section>
+    <section class="orders-section">
+    <h2>My Orders</h2>
+
+    <button onclick="loadOrders()">View My Orders</button>
+
+    <div id="orders"></div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
