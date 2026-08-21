@@ -3,35 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopping App</title>
+
+    <title>ShopEase</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <h1>Shopping App</h1>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="logo">
+            🛍️ <span>ShopEase</span>
+        </div>
 
-    <section>
-        <h2>Products</h2>
-        <div id="products"></div>
+        <div class="search-box">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search products..."
+                oninput="searchProducts()"
+            >
+            <span>🔍</span>
+        </div>
+
+        <div class="header-actions">
+            <button onclick="scrollToCart()" class="cart-button">
+                🛒 Cart
+                <span id="cartCount">0</span>
+            </button>
+
+            <button onclick="scrollToOrders()" class="orders-button">
+                📦 My Orders
+            </button>
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-small">WELCOME TO SHOPEASE</p>
+
+            <h1>
+                Shop smarter.<br>
+                <span>Live better.</span>
+            </h1>
+
+            <p>
+                Discover quality products at great prices.
+            </p>
+
+            <button onclick="scrollToProducts()" class="shop-now">
+                Shop Now →
+            </button>
+        </div>
+
+        <div class="hero-icon">
+            🛍️
+        </div>
     </section>
 
-    <section>
-        <h2>Cart</h2>
-        <div id="cart"></div>
 
-        <h3 id="cartTotal">Total: ₹0</h3>
+    <!-- MAIN -->
+    <main>
 
-        <button onclick="placeOrder()">Place Order</button>
-        <p id="message"></p>
-    </section>
-    <section class="orders-section">
-    <h2>My Orders</h2>
+        <!-- PRODUCTS -->
+        <section id="productsSection" class="section">
 
-    <button onclick="loadOrders()">View My Orders</button>
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">OUR COLLECTION</p>
+                    <h2>Featured Products</h2>
+                </div>
 
-    <div id="orders"></div>
-</section>
+                <span id="productCount" class="product-count"></span>
+            </div>
+
+            <div id="loadingProducts" class="loading">
+                Loading products...
+            </div>
+
+            <div id="products" class="products-grid"></div>
+
+        </section>
+
+
+        <!-- CART -->
+        <section id="cartSection" class="section cart-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">YOUR SELECTION</p>
+                    <h2>🛒 Your Cart</h2>
+                </div>
+
+                <span id="cartItemsText"></span>
+            </div>
+
+            <div id="cartItems" class="cart-items">
+                <div class="empty-cart">
+                    <div class="empty-icon">🛒</div>
+                    <h3>Your cart is empty</h3>
+                    <p>Add some products to get started.</p>
+                </div>
+            </div>
+
+            <div class="cart-summary">
+
+                <div>
+                    <span>Subtotal</span>
+                    <strong id="cartTotal">₹0</strong>
+                </div>
+
+                <div>
+                    <span>Delivery</span>
+                    <strong class="free">FREE</strong>
+                </div>
+
+                <div class="total-row">
+                    <span>Total</span>
+                    <strong id="finalTotal">₹0</strong>
+                </div>
+
+                <button
+                    onclick="placeOrder()"
+                    id="placeOrderButton"
+                    class="place-order"
+                >
+                    Place Order →
+                </button>
+
+                <p id="orderMessage" class="order-message"></p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ORDERS -->
+        <section id="ordersSection" class="section orders-section">
+
+            <div class="section-heading">
+                <div>
+                    <p class="section-label">ORDER HISTORY</p>
+                    <h2>📦 My Orders</h2>
+                </div>
+
+                <button onclick="loadOrders()" class="refresh-button">
+                    ↻ Refresh
+                </button>
+            </div>
+
+            <div id="orders" class="orders-container">
+
+                <div class="orders-placeholder">
+                    <div>📦</div>
+                    <h3>Your orders will appear here</h3>
+                    <p>Click refresh to view your previous orders.</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- TOAST -->
+    <div id="toast" class="toast"></div>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo">🛍️ ShopEase</div>
+        <p>Simple. Smart. Shopping.</p>
+    </footer>
+
 
     <script src="script.js"></script>
+
 </body>
 </html>

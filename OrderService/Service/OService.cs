@@ -26,8 +26,8 @@ public class OService : IOrderService
         var response = await _httpClient.GetAsync(          // Ask ProductService for the product
     "http://localhost:5261/api/product/" + order.ProductId);
 
-        response.EnsureSuccessStatusCode(); //response.EnsureSuccessStatusCode();
-        var product = await response.Content.ReadFromJsonAsync<ProductDto>(); //Takes the JSON response and converts it into our Product object.
+        response.EnsureSuccessStatusCode(); //Checks if success
+        var product = await response.Content.ReadFromJsonAsync<ProductDto>(); //Takes the JSON response and converts it into our ProductDto object.
 
         if (product == null)
         {
